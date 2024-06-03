@@ -1,0 +1,6 @@
+export enum CurrentStatus {
+	ACTIVE = "ACTIVE",
+	PROBATION = "PROBATION",
+	TERMINATED = "TERMINATED",
+	ALUMNI = "ALUMNI"
+}

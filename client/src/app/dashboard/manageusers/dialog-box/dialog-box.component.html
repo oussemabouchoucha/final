@@ -1,0 +1,80 @@
+<div>
+  <h1 mat-dialog-title>{{ action }}</h1>
+</div>
+<mat-stepper [linear]="true" #stepper>
+  <!-- <mat-step [stepControl]="tableForm">
+    <ng-template matStepLabel>Email</ng-template>
+    <form novalidate (ngSubmit)="onNext()" [formGroup]="tableForm" role="form">
+
+      <div mat-dialog-content>
+        <div fxLayout="row wrap" fxLayoutAlign="space-between stretch">
+          <div fxFlex="100" fxFlex.lt-md="100">
+            <mat-form-field style="width: 100%;">
+              <input placeholder="Email" matInput formControlName="email">
+              <mat-error>
+                {{ errors['email'] }}
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+
+      <div mat-dialog-actions style="float: right;">
+        <div>
+          <button class="dialog-btn" mat-raised-button type="button" (click)="closeDialog()">{{ cancel }}</button>
+          <button class="dialog-btn" mat-raised-button color="primary" type="submit"
+                  [disabled]="tableForm.invalid" matStepperNext>Next</button>
+        </div>
+      </div>
+
+    </form>
+  </mat-step> -->
+  <mat-step>
+    <ng-template matStepLabel>Role</ng-template>
+    <form novalidate (ngSubmit)="onNext()" [formGroup]="tableForm" role="form">
+
+      <div mat-dialog-content>
+        <div fxLayout="row wrap" fxLayoutAlign="space-between stretch">
+          <div fxFlex="100" fxFlex.lt-md="100">
+            <mat-form-field style="width: 100%;">
+              <mat-select placeholder="Role" formControlName="role">
+                <mat-option *ngFor="let role of roles" [value]="role">{{ role }}</mat-option>
+              </mat-select>
+              <mat-error>
+                {{ errors['role'] }}
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+
+      <div mat-dialog-actions style="float: right;">
+        <div>
+          <button class="dialog-btn" mat-raised-button type="button" (click)="closeDialog()">{{ cancel }}</button>
+          <button mat-button matStepperPrevious>Back</button>
+          <button class="dialog-btn" mat-raised-button color="primary" type="submit"
+                  [disabled]="tableForm.invalid" matStepperNext>Next</button>
+        </div>
+      </div>
+
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Confirm</ng-template>
+    <div mat-dialog-content>
+      <p>Please confirm the following information:</p>
+      <ul>
+        <li *ngIf="tableForm.get('email')?.value">Email: {{ tableForm.get('email')?.value }}</li>
+        <li *ngIf="tableForm.get('role')?.value">Role: {{ tableForm.get('role')?.value }}</li>
+      </ul>
+      <p>Are you sure you want to submit?</p><br>
+    </div>
+    <div mat-dialog-actions style="float: right;">
+      <div>
+        <button class="dialog-btn" mat-raised-button type="button" (click)="closeDialog()">{{ cancel }}</button>
+        <button mat-button matStepperPrevious>Back</button>
+        <button class="dialog-btn" mat-raised-button color="primary" type="submit" (click)="onSubmit(tableForm, $event)">Submit</button>
+      </div>
+    </div>
+  </mat-step>
+</mat-stepper>

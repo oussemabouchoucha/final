@@ -1,0 +1,16 @@
+<div class="container">
+  <h2>Email Validation</h2>
+  <form [formGroup]="emailForm" (ngSubmit)="onSubmit($event)">
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" id="email" class="form-control" formControlName="email" #emailInput>
+      <div *ngIf="email?.invalid && (email?.dirty || email?.touched)">
+        <div *ngIf="email?.errors?.['required']">Email is required.</div>
+        <div *ngIf="email?.errors?.['email']">Invalid email format.</div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="emailForm.invalid || isLoading">Validate</button>
+  </form>
+
+  <div *ngIf="isLoading">Validating...</div>
+</div>

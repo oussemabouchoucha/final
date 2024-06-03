@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <title>Client</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <app-root></app-root>
+  
+  <script>
+    var clearout = window.clearout = window.clearout || [];
+    var opts = {
+      "app_token": "be62b58dac024ae0e0467f30fb71d4a6:42c2a1b162690266874a1753c0d90028a2340c1b559504a0145d28ec51a77404",
+      "api_url": "https://api.clearout.io",
+      "mode": "ajax",
+      "timeout": 10
+    };
+    clearout.push(["initialize", opts]);
+
+    function loadScript(src, callback) {
+      var script = document.createElement('script');
+      script.type = 'text/javascript';
+      script.async = true;
+      script.src = src;
+      script.onload = callback;
+      script.onerror = function() {
+        console.error("Failed to load script: " + src);
+      };
+      document.head.appendChild(script);
+    }
+
+    loadScript('https://clearout.io/wp-content/co-js-widget/clearout_js_widget.js', function() {
+      console.log("Script loaded successfully.");
+      // You can add any additional initialization code here if needed
+    });
+  </script>
+</body>
+</html>

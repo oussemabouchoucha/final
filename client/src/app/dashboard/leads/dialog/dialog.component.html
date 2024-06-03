@@ -1,0 +1,107 @@
+<div>
+    <h1 mat-dialog-title>{{action}}</h1>
+  </div>
+  
+  <form novalidate (ngSubmit)="onSubmit()" [formGroup]="tableForm" role="form">
+  
+    <div mat-dialog-content>
+      <div fxLayout="row wrap" fxLayoutAlign="space-between stretch">
+        <div fxFlex="100">
+          <mat-form-field style="width: 100%;">
+            <input placeholder="name" matInput formControlName="name">
+            <mat-error>
+              {{errors['name']}}
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+  
+      <div fxLayout="row wrap" fxLayoutAlign="space-between stretch">
+        <div fxFlex="100">
+          <mat-form-field style="width: 100%;">
+            <input placeholder="email" matInput formControlName="email">
+            <mat-error>
+              {{errors['email']}}
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div fxLayout="row wrap" fxLayoutAlign="space-between stretch">
+        <div fxFlex="48" fxFlex.lt-md="100">
+          <mat-form-field style="width: 100%;">
+            <input placeholder="phone" matInput formControlName="phone">
+            <mat-error>
+              {{errors['phone']}}
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div fxFlex="48" fxFlex.lt-md="100">
+            <mat-form-field>
+              <mat-label>Status</mat-label>
+              <mat-select formControlName="status">
+                <mat-option value="Qualified">Qualified</mat-option>
+                <mat-option value="Unqualified">Unqualified</mat-option>
+              </mat-select>            <mat-error>
+                {{errors['status']}}
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+      <div fxLayout="row wrap" fxLayoutAlign="space-between stretch">
+        <div fxFlex="48" fxFlex.lt-md="100">
+          <mat-form-field style="width: 100%;">
+            <input placeholder="sex" matInput formControlName="sex">
+            <mat-error>
+              {{errors['sex']}}
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div fxFlex="48" fxFlex.lt-md="100">
+          <mat-form-field style="width: 100%;">
+            <input placeholder="age" matInput formControlName="age">
+            <mat-error>
+              {{errors['age']}}
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div fxLayout="row wrap" fxLayoutAlign="space-between stretch">
+        <div fxFlex="48" fxFlex.lt-md="100">
+          <mat-form-field style="width: 100%;">
+            <input placeholder="localisation" matInput formControlName="localisation">
+            <mat-error>
+              {{errors['localisation']}}
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div fxFlex="48" fxFlex.lt-md="100">
+          <mat-form-field style="width: 100%;">
+            <input placeholder="ville" matInput formControlName="ville">
+            <mat-error>
+              {{errors['ville']}}
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div fxLayout="row wrap" fxLayoutAlign="space-between stretch">
+        <div fxFlex="100">
+          <mat-form-field style="width: 100%;">
+            <input placeholder="situation" matInput formControlName="situation">
+            <mat-error>
+              {{errors['situation']}}
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+  
+    </div>
+  
+    <div mat-dialog-actions style="float: right;">
+      <div>
+        <button class="dialog-btn" mat-raised-button type="button" (click)="closeDialog()">{{cancel}}</button>
+        <button class="dialog-btn" mat-raised-button color="primary" type="submit"
+          [disabled]="tableForm.invalid">{{action}}</button>
+      </div>
+    </div>
+  
+  </form>

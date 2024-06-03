@@ -1,0 +1,27 @@
+<div class="container">
+  <h2>Phone Number Validation</h2>
+  <form [formGroup]="phoneForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="phoneNumber">Phone Number:</label>
+      <input type="text" id="phoneNumber" class="form-control" formControlName="phoneNumber">
+      <div *ngIf="phoneNumber?.invalid && (phoneNumber?.dirty || phoneNumber?.touched)">
+        <div *ngIf="phoneNumber?.errors?.['required']">Phone number is required.</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="countryCode">Country Code:</label>
+      <input type="text" id="countryCode" class="form-control" formControlName="countryCode">
+      <div *ngIf="countryCode?.invalid && (countryCode?.dirty || countryCode?.touched)">
+        <div *ngIf="countryCode?.errors?.['required']">Country code is required.</div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="phoneForm.invalid || isLoading">Validate</button>
+  </form>
+
+  <div *ngIf="isLoading">Validating...</div>
+
+  <div *ngIf="validationResponse">
+    <h3>Validation Result:</h3>
+    <pre>{{ validationResponse | json }}</pre>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+<app-email-validation></app-email-validation>
+<app-phone-validation></app-phone-validation>
+
+<!-- <div class="container">
+  <h2>Validation</h2>
+  <form [formGroup]="validationForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="phoneNumber">Phone Number:</label>
+      <input type="text" id="phoneNumber" class="form-control" formControlName="phoneNumber">
+      <div *ngIf="phoneNumber?.invalid && (phoneNumber?.dirty || phoneNumber?.touched)">
+        <div *ngIf="phoneNumber?.errors?.['required']"> Phone number is required. </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="countryCode">Country Code:</label>
+      <input type="text" id="countryCode" class="form-control" formControlName="countryCode">
+      <div *ngIf="countryCode?.invalid && (countryCode?.dirty || countryCode?.touched)">
+        <div *ngIf="countryCode?.errors?.['required']"> Country code is required. </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" id="email" class="form-control" formControlName="email">
+      <div *ngIf="email?.invalid && (email?.dirty || email?.touched)">
+        <div *ngIf="email?.errors?.['required']"> Email is required. </div>
+        <div *ngIf="email?.errors?.['email']"> Invalid email format. </div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="validationForm.invalid || isLoading">Validate</button>
+  </form>
+  <div *ngIf="isLoading">Validating...</div>
+  <div *ngIf="validationResponse">
+    <h3>Validation Result:</h3>
+    <pre>{{ validationResponse | json }}</pre>
+  </div>
+  <div *ngIf="selectedLeads.length">
+    <h3>Selected Leads:</h3>
+    <pre>{{ selectedLeads | json }}</pre>
+  </div>
+</div> -->
